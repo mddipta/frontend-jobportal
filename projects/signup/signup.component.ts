@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import SignupService from './service/signup.service';
 import { MessageBoxService } from '@core/service/message-box.service';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-signup',
@@ -14,7 +15,8 @@ export class SignupComponent {
     constructor(
         private fb: FormBuilder,
         private signupService: SignupService,
-        private messageBox: MessageBoxService
+        private messageBox: MessageBoxService,
+        private router: Router
     ) {}
 
     ngOnInit() {
@@ -31,19 +33,24 @@ export class SignupComponent {
     }
 
     onSubmit() {
+        const password: string = this.signupForm.get('password').value;
+        const confirmPassword: string =
+            this.signupForm.get('confirmPassword').value;
+
         if (this.signupForm.valid) {
+            if (password !== confirmPassword) {
+                this.messageBox.showError(
+                    'Password and Confirm Password must match'
+                );
+                return;
+            }
             this.signupService.signup(this.signupForm.getRawValue()).subscribe({
                 next: (err) => {
                     localStorage.setItem(
                         'email',
                         this.signupForm.get('email').value
                     );
-                    this.messageBox.showSuccess(
-                        'Pendaftaran berhasil silahkan melakukan verifikasi agar dapat mengakses sistem kami',
-                        'Pendaftaran berhasil',
-                        true,
-                        'verification'
-                    );
+                    this.router.navigateByUrl('/verification');
                 },
                 error: (err) => {
                     const error = JSON.parse(err);
