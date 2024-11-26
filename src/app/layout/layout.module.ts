@@ -40,6 +40,9 @@ import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { CheckboxModule } from 'primeng/checkbox';
 import { ConfirmationService } from 'primeng/api';
 import { AuthLayoutComponent } from './auth-layout/auth-layout.component';
+import { SidebarModule } from 'primeng/sidebar';
+import { DividerModule } from 'primeng/divider';
+import { SidebarComponent } from './admin-layout/sidebar/sidebar.component';
 
 @NgModule({
     declarations: [
@@ -57,6 +60,7 @@ import { AuthLayoutComponent } from './auth-layout/auth-layout.component';
         ForgotPasswordComponent,
         PrivacyPoliciesComponent,
         AuthLayoutComponent,
+        SidebarComponent,
     ],
     imports: [
         AutoCompleteModule,
@@ -84,6 +88,8 @@ import { AuthLayoutComponent } from './auth-layout/auth-layout.component';
         BadgeModule,
         ConfirmDialogModule,
         CheckboxModule,
+        SidebarModule,
+        DividerModule,
     ],
     providers: [MenuService, ConfigService, ConfirmationService],
 })

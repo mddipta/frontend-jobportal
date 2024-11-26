@@ -1,0 +1,63 @@
+<p-sidebar
+    [dismissible]="false"
+    [showCloseIcon]="false"
+    [visible]="sidebarVisible"
+    [modal]="false"
+    [blockScroll]="false"
+    class="sidebar"
+    styleClass="w-20rem p-0"
+>
+    <div class="flex justify-content-between align-items-center">
+        <div
+            class="flex justify-content-center align-content-center align-items-center w-full"
+        >
+            <div class="grid">
+                <div
+                    class="col-2 flex justify-content-center align-items-center"
+                >
+                    <i
+                        class="fa fa-light fa-briefcase text-primary text-3xl"
+                    ></i>
+                </div>
+
+                <div class="col-10">
+                    <p class="text-primary text-3xl font-semibold">JobPortal</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="md:inline lg:hidden inline-block w-3rem">
+            <button
+                pButton
+                type="button"
+                class="p-button-rounded p-button-text"
+                (click)="toggleSidebar()"
+            >
+                <i class="fa-solid fa-x"></i>
+            </button>
+        </div>
+    </div>
+
+    <p-divider></p-divider>
+
+    <ng-template pTemplate="content">
+        <!-- <ul>
+            <li *ngFor="let menu of menuUser">
+                <a
+                    [routerLink]="'/' + menu.route"
+                    [classList]="menu.classStyleMenu"
+                >
+                    <i [ngClass]="menu.icon"></i>
+                    {{ menu.label }}
+                </a>
+            </li>
+        </ul> -->
+        <ul>
+            <li>
+                <a href="">
+                    <i class="fa fa-home"></i>
+                </a>
+            </li>
+        </ul>
+    </ng-template>
+</p-sidebar>
