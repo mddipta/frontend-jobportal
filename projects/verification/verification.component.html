@@ -1,0 +1,87 @@
+<div class="bg-white">
+    <div class="flex align-items-center justify-content-center min-h-screen">
+        <p-card class="w-6 p-4">
+            <h5 class="text-black-alpha-80">6 Digit code</h5>
+            <p>
+                Untuk dapat mengakses sistem kami, lakukan verifikasi dengan
+                memasukkan code yang telah dikirimkan melalui email anda
+            </p>
+            <div [formGroup]="otpForm">
+                <div class="field mb-4">
+                    <input
+                        id="code"
+                        type="text"
+                        pInputText
+                        class="text-base text-color surface-overlay p-3 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"
+                        name="code"
+                        formControlName="code"
+                        placeholder="Verification Code"
+                        [ngClass]="{
+                            'ng-invalid ng-dirty':
+                            otpForm.get('code')?.invalid &&
+                            (otpForm.get('code')?.dirty ||
+                            otpForm.get('code')?.touched),
+                        }"
+                    />
+                    <div
+                        *ngIf="
+                            otpForm.get('code')?.invalid &&
+                            otpForm.get('code')?.touched
+                        "
+                        class="text-red-500"
+                    >
+                        code is required.
+                    </div>
+                    <button
+                        pButton
+                        pRipple
+                        label="Submit"
+                        class="bg-primary text-white w-full mt-4 p-3"
+                        (click)="onSubmit()"
+                    ></button>
+                    <div class="text-center mt-3">
+                        <p>Tidak dapat menerima code?</p>
+                        <button
+                            (click)="onResendEmail()"
+                            class="text-primary bg-white border-0 border-none cursor-pointer"
+                        >
+                            Kirim Ulang Code
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </p-card>
+    </div>
+</div>
+
+<flash-message-success></flash-message-success>
+
+<p-dialog
+    class="message-error"
+    [(visible)]="visible"
+    [style]="{ width: '476px' }"
+>
+    <div class="c-icons approved-icon"></div>
+    <div class="text-center">
+        <p
+            class="text-xl font-bold mb-2"
+            style="color: var(--surface-700); margin: 0"
+        >
+            Verifikasi Berhasil!
+        </p>
+        <p class="text-base font-normal" style="color: var(--surface-500)">
+            Selamat, Anda telah berhasil melakukan verifikasi akun. Silakan
+            login kembali untuk mengakses sistem kami.
+        </p>
+    </div>
+
+    <ng-template pTemplate="footer">
+        <button
+            type="button"
+            pButton
+            label="OK"
+            (click)="onDirectLogin()"
+            [style]="{ width: '134px' }"
+        ></button>
+    </ng-template>
+</p-dialog>

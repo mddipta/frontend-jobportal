@@ -111,6 +111,28 @@ export class ApiService {
             );
     }
 
+    postNoHeader(
+        uri: string,
+        body: object,
+        isShowSpinner?: boolean
+    ): Observable<any> {
+        if (isShowSpinner) {
+            this.spinner.show();
+        }
+        return this.httpClient
+            .post<any>(environment.apiUrl + uri, body, {
+                observe: 'response',
+                responseType: 'text' as 'json',
+            })
+            .pipe(
+                map((response) => this.mapToAppResponse(response)),
+                catchError(this.handleError),
+                finalize(() => {
+                    this.spinner.hide();
+                })
+            );
+    }
+
     postCsv(
         uri: string,
         body: object,
@@ -318,6 +340,29 @@ export class ApiService {
                 })
             );
     }
+
+    putNoHeader(
+        uri: string,
+        body?: object,
+        isShowSpinner?: boolean
+    ): Observable<any> {
+        if (isShowSpinner) {
+            this.spinner.show();
+        }
+        return this.httpClient
+            .put<any>(environment.apiUrl + uri, body, {
+                observe: 'response',
+                responseType: 'text' as 'json',
+            })
+            .pipe(
+                map((response) => this.mapToAppResponse(response)),
+                catchError(this.handleError),
+                finalize(() => {
+                    this.spinner.hide();
+                })
+            );
+    }
+
     putFormData(
         uri: string,
         body: object,

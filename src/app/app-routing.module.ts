@@ -5,6 +5,8 @@ import { PageForbiddenComponent } from './layout/page-forbidden/page-forbidden.c
 import { PageNotFoundComponent } from './layout/page-not-found/page-not-found.component';
 import { RedirectComponent } from './layout/redirect/redirect.component';
 import { AuthLayoutComponent } from '@layout/auth-layout/auth-layout.component';
+import { VerificationComponent } from 'projects/verification/verification.component';
+import { verificationGuard } from '@core/verification.guard';
 
 const web: string = localStorage.getItem('web') ?? 'admin';
 
@@ -27,6 +29,15 @@ const web: string = localStorage.getItem('web') ?? 'admin';
                         import('projects/signup/signup.module').then(
                             (m) => m.SignupModule
                         ),
+                },
+                {
+                    path: 'verification',
+                    component: VerificationComponent,
+                    loadChildren: () =>
+                        import(
+                            'projects/verification/verification.module'
+                        ).then((m) => m.VerificationModule),
+                    canActivate: [verificationGuard],
                 },
                 {
                     path: 'redirect',
