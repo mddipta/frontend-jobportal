@@ -32,9 +32,9 @@
         .notif__img-avatar {
             background-color: var(--surface-0);
 
-        //     i {
-        //         color: #ffffff;
-        //     }
+            //     i {
+            //         color: #ffffff;
+            //     }
         }
     }
 
@@ -105,9 +105,9 @@
         .notif__img-avatar {
             background-color: var(--surface-0);
 
-        //     i {
-        //         color: #ffffff;
-        //     }
+            //     i {
+            //         color: #ffffff;
+            //     }
         }
     }
 
@@ -129,7 +129,6 @@
             color: var(--primary-color);
             font-size: 20px;
         }
-
     }
 
     &__body {
@@ -143,21 +142,21 @@
                 color: #9f9f9f;
                 font-size: 12px;
                 font-weight: 400;
-                font-family: SF Pro Text;
+                font-family: "Plus Jakarta Sans", serif;
             }
 
             p {
                 color: #656565;
                 font-weight: 600;
                 font-size: 16px;
-                font-family: SF Pro Text;
+                font-family: "Plus Jakarta Sans", serif;
             }
         }
 
         .message-content {
             font-weight: 400;
             font-size: 14px;
-            font-family: SF Pro Text;
+            font-family: "Plus Jakarta Sans", serif;
             color: #656565;
         }
     }

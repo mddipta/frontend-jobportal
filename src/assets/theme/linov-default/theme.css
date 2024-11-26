@@ -2,7 +2,7 @@
     --text-color: #495057;
     --text-color-secondary: #6c757d;
     --border-radius: 6px;
-    --primary-color: #3b82f6;
+    --primary-color: #3575e2;
     --primary-color-text: #ffffff;
     --surface-ground: #eff3f8;
     --surface-section: #ffffff;
@@ -155,7 +155,7 @@
 }
 
 @font-face {
-    font-family: SF Pro Text;
+    font-family: "Plus Jakarta Sans", serif;
     font-style: normal;
     font-weight: 300;
     src: local(""), url("./fonts/SF-Pro-Text-Light.otf") format("truetype");
@@ -163,7 +163,7 @@
 }
 
 @font-face {
-    font-family: SF Pro Text;
+    font-family: "Plus Jakarta Sans", serif;
     font-style: normal;
     font-weight: 400;
     src: local(""), url("./fonts/SF-Pro-Text-Regular.otf") format("truetype");
@@ -171,7 +171,7 @@
 }
 
 @font-face {
-    font-family: SF Pro Text;
+    font-family: "Plus Jakarta Sans", serif;
     font-style: normal;
     font-weight: 500;
     src: local(""), url("./fonts/SF-Pro-Text-Medium.otf") format("truetype");
@@ -179,7 +179,7 @@
 }
 
 @font-face {
-    font-family: SF Pro Text;
+    font-family: "Plus Jakarta Sans", serif;
     font-style: normal;
     font-weight: 600;
     src: local(""), url("./fonts/SF-Pro-Text-Semibold.otf") format("truetype");
@@ -187,7 +187,7 @@
 }
 
 @font-face {
-    font-family: SF Pro Text;
+    font-family: "Plus Jakarta Sans", serif;
     font-style: normal;
     font-weight: 700;
     src: local(""), url("./fonts/SF-Pro-Text-Bold.otf") format("truetype");
@@ -199,7 +199,7 @@
 }
 
 .p-component {
-    font-family: SF Pro Text;
+    font-family: "Plus Jakarta Sans", serif;
     font-size: 1rem;
     font-weight: normal;
 }
@@ -229,7 +229,7 @@
 
 .p-link {
     font-size: 1rem;
-    font-family: SF Pro Text;
+    font-family: "Plus Jakarta Sans", serif;
     border-radius: 6px;
 }
 
@@ -298,7 +298,7 @@
     .p-autocomplete-multiple-container
     .p-autocomplete-input-token
     input {
-    font-family: SF Pro Text;
+    font-family: "Plus Jakarta Sans", serif;
     font-size: 1rem;
     color: #495057;
     padding: 0;
@@ -881,7 +881,7 @@ p-checkbox.ng-dirty.ng-invalid > .p-checkbox > .p-checkbox-box {
 }
 
 .p-chips .p-chips-multiple-container .p-chips-input-token input {
-    font-family: SF Pro Text;
+    font-family: "Plus Jakarta Sans", serif;
     font-size: 1rem;
     color: #495057;
     padding: 0;
@@ -1382,7 +1382,7 @@ p-inputswitch.ng-dirty.ng-invalid > .p-inputswitch {
 }
 
 .p-inputtext {
-    font-family: SF Pro Text;
+    font-family: "Plus Jakarta Sans", serif;
     font-size: 1rem;
     color: #495057;
     background-color: var(--surface-100);
@@ -4198,7 +4198,7 @@ p-treeselect.ng-invalid.ng-dirty > .p-treeselect {
 
 .p-paginator p-dropdown::before {
     content: "Show";
-    font-family: SF Pro Text;
+    font-family: "Plus Jakarta Sans", serif;
     font-style: normal;
     font-weight: normal;
     font-size: 14px;
@@ -5387,7 +5387,7 @@ p-treeselect.ng-invalid.ng-dirty > .p-treeselect {
 }
 
 .p-dialog.p-confirm-dialog .p-confirm-dialog-message {
-    font-family: SF Pro Text;
+    font-family: "Plus Jakarta Sans", serif;
     font-style: normal;
     color: var(--surface-700);
     margin-left: 1rem;
@@ -7545,7 +7545,7 @@ p-treeselect.ng-invalid.ng-dirty > .p-treeselect {
 
 .p-terminal .p-terminal-input {
     font-size: 1rem;
-    font-family: SF Pro Text;
+    font-family: "Plus Jakarta Sans", serif;
 }
 
 .p-button-label {

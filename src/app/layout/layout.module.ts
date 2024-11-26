@@ -39,6 +39,7 @@ import { BadgeModule } from 'primeng/badge';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { CheckboxModule } from 'primeng/checkbox';
 import { ConfirmationService } from 'primeng/api';
+import { AuthLayoutComponent } from './auth-layout/auth-layout.component';
 
 @NgModule({
     declarations: [
@@ -55,6 +56,7 @@ import { ConfirmationService } from 'primeng/api';
         AppSubMenuComponent,
         ForgotPasswordComponent,
         PrivacyPoliciesComponent,
+        AuthLayoutComponent,
     ],
     imports: [
         AutoCompleteModule,

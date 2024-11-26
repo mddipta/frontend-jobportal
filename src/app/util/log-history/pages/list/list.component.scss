@@ -27,7 +27,7 @@
     outline: none;
     background-color: transparent;
     padding: 0;
-    font-family: SF Pro Text;
+    font-family: "Plus Jakarta Sans", serif;
     cursor: pointer;
 
     &:hover {
@@ -109,7 +109,7 @@
 }
 
 .text--module {
-    font-family: SF Pro Text;
+    font-family: "Plus Jakarta Sans", serif;
     font-weight: 700;
     font-size: 14px;
     line-height: 19.1px;
@@ -118,7 +118,7 @@
 }
 
 .text--action {
-    font-family: SF Pro Text;
+    font-family: "Plus Jakarta Sans", serif;
     font-weight: 400;
     font-size: 14px;
     line-height: 19.1px;
@@ -127,7 +127,7 @@
 }
 
 .text--date-key {
-    font-family: SF Pro Text;
+    font-family: "Plus Jakarta Sans", serif;
     font-weight: 600;
     font-size: 16px;
     color: #656565;
