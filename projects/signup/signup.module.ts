@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 import { SharedComponentModule } from '@core/shared-component/shared-component.module';
 import { SignupComponent } from './signup.component';
 import { SignupRoutingModule } from './signup-routing.module';
+import { PasswordModule } from 'primeng/password';
 
 @NgModule({
     declarations: [SignupComponent],
@@ -14,6 +15,7 @@ import { SignupRoutingModule } from './signup-routing.module';
         ReactiveFormsModule,
         CommonModule,
         SharedComponentModule,
+        PasswordModule,
     ],
 })
 export class SignupModule {}

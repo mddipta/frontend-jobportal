@@ -53,21 +53,27 @@
         </div>
     </div>
     <div class="field mb-4">
-        <input
-            id="password"
-            type="password"
-            pInputText
-            class="text-base text-color surface-overlay p-3 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"
-            name="password"
+        <p-password
             formControlName="password"
+            [toggleMask]="true"
             placeholder="Password"
-            [ngClass]="{
-                            'ng-invalid ng-dirty':
-                            signupForm.get('password')?.invalid &&
-                            (signupForm.get('password')?.dirty ||
-                            signupForm.get('password')?.touched),
-                        }"
-        />
+        >
+            <ng-template pTemplate="header">
+                <h6 class="text-base text-color title-password">
+                    Pick a password
+                </h6>
+            </ng-template>
+            <ng-template pTemplate="footer">
+                <p-divider></p-divider>
+                <p class="mt-2">Suggestions</p>
+                <ul class="pl-2 ml-2 mt-0" style="line-height: 1.5">
+                    <li>At least one lowercase</li>
+                    <li>At least one uppercase</li>
+                    <li>At least one numeric</li>
+                    <li>Minimum 8 characters</li>
+                </ul>
+            </ng-template>
+        </p-password>
         <div
             *ngIf="
                 signupForm.get('password')?.invalid &&

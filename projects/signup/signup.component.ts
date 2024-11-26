@@ -34,11 +34,15 @@ export class SignupComponent {
         if (this.signupForm.valid) {
             this.signupService.signup(this.signupForm.getRawValue()).subscribe({
                 next: (err) => {
-                    // this.messageBox.showSuccess('Pendaftaran berhasil silahkan melakukan verifikasi agar dapat mengakses sistem kami', 'Pendaftaran berhasil', true, 'verification');
+                    localStorage.setItem(
+                        'email',
+                        this.signupForm.get('email').value
+                    );
                     this.messageBox.showSuccess(
                         'Pendaftaran berhasil silahkan melakukan verifikasi agar dapat mengakses sistem kami',
-                        'Pendaftaran berhasil!',
-                        false
+                        'Pendaftaran berhasil',
+                        true,
+                        'verification'
                     );
                 },
                 error: (err) => {
