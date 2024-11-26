@@ -7,6 +7,7 @@ import { RedirectComponent } from './layout/redirect/redirect.component';
 import { AuthLayoutComponent } from '@layout/auth-layout/auth-layout.component';
 import { VerificationComponent } from 'projects/verification/verification.component';
 import { verificationGuard } from '@core/verification.guard';
+import { SidebarComponent } from '@layout/admin-layout/sidebar/sidebar.component';
 
 const web: string = localStorage.getItem('web') ?? 'admin';
 
@@ -14,6 +15,10 @@ const web: string = localStorage.getItem('web') ?? 'admin';
     imports: [
         RouterModule.forRoot(
             [
+                {
+                    path: 'dashboard',
+                    component: SidebarComponent,
+                },
                 {
                     path: 'login',
                     component: AuthLayoutComponent,
