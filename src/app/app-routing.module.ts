@@ -21,6 +21,14 @@ const web: string = localStorage.getItem('web') ?? 'admin';
                         ),
                 },
                 {
+                    path: 'signup',
+                    component: AuthLayoutComponent,
+                    loadChildren: () =>
+                        import('projects/signup/signup.module').then(
+                            (m) => m.SignupModule
+                        ),
+                },
+                {
                     path: 'redirect',
                     component: RedirectComponent,
                 },
@@ -31,13 +39,6 @@ const web: string = localStorage.getItem('web') ?? 'admin';
                 {
                     path: '403',
                     component: PageForbiddenComponent,
-                },
-                {
-                    path: 'util',
-                    component: AppMainComponent,
-                    loadChildren: () =>
-                        import('./util/util.module').then((m) => m.UtilModule),
-                    // canActivate: [authGuard],
                 },
                 {
                     path: 'showcase',
