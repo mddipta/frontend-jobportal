@@ -78,7 +78,7 @@
                             <span
                                 style="
                                     color: #656565;
-                                    font-family: SF Pro Text;
+                                    font-family: 'Plus Jakarta Sans', serif;
                                     font-size: 12px;
                                     font-style: normal;
                                     font-weight: 700;
@@ -89,7 +89,7 @@
                             <span
                                 style="
                                     color: #656565;
-                                    font-family: SF Pro Text;
+                                    font-family: 'Plus Jakarta Sans', serif;
                                     font-size: 14px;
                                     font-style: normal;
                                     font-weight: 400;
@@ -100,7 +100,8 @@
                         </div>
                     </div>
                 </div>
-                <app-employee-select [needCompany]="true"
+                <app-employee-select
+                    [needCompany]="true"
                     (selected)="selectFilter($event, 'user')"
                     [isNeedHeader]="false"
                     (hide)="hideDialogEmpSelect()"
@@ -122,7 +123,7 @@
                             border: none;
                             background-color: transparent;
                             padding: 0;
-                            font-family: SF Pro Text;
+                            font-family: 'Plus Jakarta Sans', serif;
                         "
                         class="text-click"
                     >

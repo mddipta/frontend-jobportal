@@ -1,0 +1,23 @@
+<div
+    class="auth min-h-screen max-h-screen flex align-items-center justify-content-center"
+>
+    <div
+        class="lg:w-6 md:w-8 w-full px-4 flex align-content-center justify-content-center align-items-center flex-col"
+    >
+        <div class="w-full md:w-10">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+    <div class="hidden lg:flex w-6 justify-content-end align-items-end">
+        <div class="image-container">
+            <div class="gradient"></div>
+            <img
+                src="assets/images/login-image.jpg"
+                class="object-cover"
+                alt="Background"
+            />
+        </div>
+    </div>
+</div>
+<flash-message-error></flash-message-error>
+<flash-message-success></flash-message-success>

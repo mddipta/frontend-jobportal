@@ -1,19 +1,22 @@
 /* You can add global styles to this file, and also import other style files */
 
 @import "../node_modules/primeng/resources/primeng.min.css";
-@import "node_modules/primeflex/primeflex.scss";
 @import "../node_modules/primeicons/primeicons.css";
 @import "../node_modules/prismjs/themes/prism-coy.css";
 @import "assets/sass/layout/_variables";
 @import "assets/sass/layout/_layout";
 @import "assets/sass/overrides/_overrides";
 @import "~bootstrap-icons/font/bootstrap-icons.css";
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
 
 * {
     scrollbar-width: thin !important;
     scrollbar-color: var(--surface-200) var(--surface-0) !important;
-    font-family: SF Pro Text;
+    font-family: "Inter", sans-serif;
+}
+
+body {
+    background-color: #f1f2f4;
 }
 
 .fa {
@@ -41,6 +44,13 @@
     background-color: $light-gray;
     border-radius: 10px;
     border: transparent;
+}
+
+input,
+input::placeholder {
+    font-family: "Arial", sans-serif !important;
+    font-size: 16px;
+    color: #333;
 }
 
 .head-title-menu-ess {
@@ -385,7 +395,7 @@ input::-webkit-inner-spin-button {
 }
 
 .title-upgrade {
-    font-family: SF Pro Text;
+    font-family: "Inter", sans-serif;
     font-style: normal;
     font-weight: 700;
     font-size: 12px;
@@ -394,7 +404,7 @@ input::-webkit-inner-spin-button {
 }
 
 .content-upgrade {
-    font-family: SF Pro Text;
+    font-family: "Inter", sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 9px;
@@ -426,14 +436,14 @@ input::-webkit-inner-spin-button {
 }
 
 .title-font {
-    font-family: SF Pro Text;
+    font-family: "Inter", sans-serif;
     font-style: normal;
     font-weight: 500;
     color: #232859;
 }
 
 .content-font {
-    font-family: SF Pro Text;
+    font-family: "Inter", sans-serif;
     font-style: normal;
     font-weight: 400;
 
@@ -441,7 +451,7 @@ input::-webkit-inner-spin-button {
 }
 
 .link-font {
-    font-family: SF Pro Text;
+    font-family: "Inter", sans-serif;
     font-style: normal;
     font-weight: 400;
     color: #8c8c8c;
@@ -1572,7 +1582,7 @@ input::-webkit-inner-spin-button {
 }
 
 .font-first {
-    font-family: SF Pro Text;
+    font-family: "Inter", sans-serif;
     font-style: normal;
     font-weight: bold;
     font-size: 24px;
@@ -1581,7 +1591,7 @@ input::-webkit-inner-spin-button {
 }
 
 .font-first-blue {
-    font-family: SF Pro Text;
+    font-family: "Inter", sans-serif;
     font-style: normal;
     font-weight: bold;
     font-size: 24px;
@@ -1590,7 +1600,7 @@ input::-webkit-inner-spin-button {
 }
 
 .font-second {
-    font-family: SF Pro Text;
+    font-family: "Inter", sans-serif;
     font-style: normal;
     font-weight: bold;
     font-size: 20px;
@@ -1600,7 +1610,7 @@ input::-webkit-inner-spin-button {
 }
 
 .font-second-black {
-    font-family: SF Pro Text;
+    font-family: "Inter", sans-serif;
     font-style: normal;
     font-weight: bold;
     font-size: 20px;
@@ -1609,7 +1619,7 @@ input::-webkit-inner-spin-button {
 }
 
 .font-third {
-    font-family: SF Pro Text;
+    font-family: "Inter", sans-serif;
     font-style: normal;
     font-weight: bold;
     font-size: 14px;
@@ -1618,7 +1628,7 @@ input::-webkit-inner-spin-button {
 }
 
 .font-third-blue {
-    font-family: SF Pro Text;
+    font-family: "Inter", sans-serif;
     font-style: normal;
     font-weight: bold;
     font-size: 14px;
@@ -1627,7 +1637,7 @@ input::-webkit-inner-spin-button {
 }
 
 .font-third-black {
-    font-family: SF Pro Text;
+    font-family: "Inter", sans-serif;
     font-style: normal;
     font-weight: bold;
     font-size: 14px;
@@ -1635,7 +1645,7 @@ input::-webkit-inner-spin-button {
 }
 
 .font-fourth {
-    font-family: SF Pro Text;
+    font-family: "Inter", sans-serif;
     font-style: normal;
     font-weight: normal;
     font-size: 14px;
@@ -1644,7 +1654,7 @@ input::-webkit-inner-spin-button {
 }
 
 .font-fourth-black {
-    font-family: SF Pro Text;
+    font-family: "Inter", sans-serif;
     font-style: normal;
     font-weight: 600;
     font-size: 14px;
@@ -1652,7 +1662,7 @@ input::-webkit-inner-spin-button {
 }
 
 .font-fourth-blue {
-    font-family: SF Pro Text;
+    font-family: "Inter", sans-serif;
     font-style: normal;
     font-weight: normal;
     font-size: 14px;
@@ -2140,7 +2150,7 @@ input::-webkit-inner-spin-button {
     }
 
     .card-title {
-        font-family: SF Pro Text;
+        font-family: "Inter", sans-serif;
         color: var(--surface-700);
         text-align: left;
 
@@ -2185,7 +2195,7 @@ input::-webkit-inner-spin-button {
     }
 
     .card-title {
-        font-family: SF Pro Text;
+        font-family: "Inter", sans-serif;
         color: var(--surface-700);
         text-align: left;
 
@@ -2225,7 +2235,7 @@ input::-webkit-inner-spin-button {
     }
 
     .p-card-title {
-        font-family: SF Pro Text;
+        font-family: "Inter", sans-serif;
         color: var(--surface-700);
         font-size: 1.25rem;
 
@@ -3067,7 +3077,7 @@ input::-webkit-inner-spin-button {
 }
 
 .text-profile {
-    font-family: SF Pro Text;
+    font-family: "Inter", sans-serif;
     color: var(--surface-700);
     text-align: left;
 
@@ -3155,7 +3165,7 @@ input::-webkit-inner-spin-button {
 }
 
 .input-custom-info {
-    font-family: SF Pro Text;
+    font-family: "Inter", sans-serif;
     font-size: 1rem;
     color: #495057;
     background-color: var(--surface-100);
@@ -3339,7 +3349,7 @@ input::-webkit-inner-spin-button {
             .p-datepicker-title {
                 button {
                     font-weight: 700;
-                    font-family: SF Pro Text;
+                    font-family: "Inter", sans-serif;
                     color: #656565;
                     text-transform: uppercase;
                 }
@@ -3352,14 +3362,14 @@ input::-webkit-inner-spin-button {
                     span {
                         color: #9f9f9f;
                         font-weight: 400;
-                        font-family: SF Pro Text;
+                        font-family: "Inter", sans-serif;
                     }
                 }
 
                 tbody tr {
                     td.p-datepicker-other-month {
                         color: #e1e1e1;
-                        font-family: SF Pro Text;
+                        font-family: "Inter", sans-serif;
                         font-weight: 400;
 
                         span {
@@ -3388,7 +3398,7 @@ input::-webkit-inner-spin-button {
                                 border: none;
                                 outline: none;
                                 padding: 0;
-                                font-family: SF Pro Text;
+                                font-family: "Inter", sans-serif;
                                 cursor: pointer;
                                 color: #656565;
                                 width: 100%;
@@ -3721,7 +3731,7 @@ input::-webkit-inner-spin-button {
     outline: none;
     width: 10rem;
     padding: 0;
-    font-family: SF Pro Text;
+    font-family: "Inter", sans-serif;
     color: #0e8ec5;
     cursor: pointer;
 
@@ -3904,7 +3914,7 @@ input::-webkit-inner-spin-button {
     position: relative;
     user-select: none;
     cursor: pointer;
-    font-family: SF Pro Text;
+    font-family: "Inter", sans-serif;
     padding: 0;
 
     &--label {
@@ -3940,7 +3950,7 @@ input::-webkit-inner-spin-button {
 
 .th-normal {
     color: var(--general-grey);
-    font-family: SF Pro Text;
+    font-family: "Inter", sans-serif;
     font-weight: 400;
     font-size: 12px;
     line-height: 16px;
@@ -3948,7 +3958,7 @@ input::-webkit-inner-spin-button {
 
 .td-normal {
     color: #4f4f4f;
-    font-family: SF Pro Text;
+    font-family: "Inter", sans-serif;
     font-weight: 600;
     font-size: 14px;
     line-height: 16px;

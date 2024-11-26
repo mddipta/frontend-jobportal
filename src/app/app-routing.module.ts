@@ -3,8 +3,8 @@ import { RouterModule } from '@angular/router';
 import { AppMainComponent } from './layout/component/app.main.component';
 import { PageForbiddenComponent } from './layout/page-forbidden/page-forbidden.component';
 import { PageNotFoundComponent } from './layout/page-not-found/page-not-found.component';
-
 import { RedirectComponent } from './layout/redirect/redirect.component';
+import { AuthLayoutComponent } from '@layout/auth-layout/auth-layout.component';
 
 const web: string = localStorage.getItem('web') ?? 'admin';
 
@@ -12,6 +12,14 @@ const web: string = localStorage.getItem('web') ?? 'admin';
     imports: [
         RouterModule.forRoot(
             [
+                {
+                    path: 'login',
+                    component: AuthLayoutComponent,
+                    loadChildren: () =>
+                        import('projects/login/login.module').then(
+                            (m) => m.LoginModule
+                        ),
+                },
                 {
                     path: 'redirect',
                     component: RedirectComponent,
@@ -25,6 +33,13 @@ const web: string = localStorage.getItem('web') ?? 'admin';
                     component: PageForbiddenComponent,
                 },
                 {
+                    path: 'util',
+                    component: AppMainComponent,
+                    loadChildren: () =>
+                        import('./util/util.module').then((m) => m.UtilModule),
+                    // canActivate: [authGuard],
+                },
+                {
                     path: 'showcase',
                     component: AppMainComponent,
                     loadChildren: () =>
@@ -33,7 +48,6 @@ const web: string = localStorage.getItem('web') ?? 'admin';
                         ),
                     // canActivate: [AuthGuard],
                 },
-
                 { path: '**', redirectTo: '404' },
             ],
             {
