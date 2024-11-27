@@ -118,21 +118,21 @@ body {
 .Treant > .node {
     background-color: #ffffff;
     width: 230px;
-    font-family: "Plus Jakarta Sans", serif;
+    font-family: "Inter", sans-serif;
     font-size: 12px;
     color: var(--surface-800);
     text-align: center;
 }
 .Treant > .hehehe {
     background-color: #ffffff;
-    font-family: "Plus Jakarta Sans", serif;
+    font-family: "Inter", sans-serif;
     font-size: 12px;
     color: var(--surface-800);
     text-align: center;
 }
 .Treant > .node > .node-title {
     /* background-color: #6d6dc9; */
-    font-family: "Plus Jakarta Sans", serif;
+    font-family: "Inter", sans-serif;
     font-size: 14px;
     color: var(--surface-0);
     font-weight: 700;
