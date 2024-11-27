@@ -4,6 +4,7 @@
     padding: 10px;
     .sidebar {
         flex: 0 0 18rem;
+        margin-right: 25px;
     }
     .content {
         flex-grow: 1;
@@ -13,5 +14,6 @@
 @media (max-width: 992px) {
     .sidebar {
         flex: 0 0 0 !important;
+        margin-right: 15px;
     }
 }

@@ -1,7 +1,10 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Injectable({ providedIn: 'root' })
 class AuthService {
+    constructor(private route: Router) {}
+
     saveLoginData(login: any): void {
         localStorage.setItem('dataLogin', JSON.stringify(login.data));
     }
@@ -32,6 +35,7 @@ class AuthService {
 
     logout(): void {
         localStorage.removeItem('dataLogin');
+        this.route.navigateByUrl('/login');
     }
 }
 

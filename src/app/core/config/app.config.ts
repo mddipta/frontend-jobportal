@@ -79,3 +79,12 @@ export interface AppConfig {
     ripple?: boolean;
     loading?: boolean;
 }
+
+export const MENU = [
+    {
+        role: ['SA', 'HR'],
+        route: '/dashboard',
+        label: 'Dashboard',
+        icon: 'fa fa-home',
+    },
+];
