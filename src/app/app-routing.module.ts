@@ -8,6 +8,7 @@ import { AuthLayoutComponent } from '@layout/auth-layout/auth-layout.component';
 import { VerificationComponent } from 'projects/verification/verification.component';
 import { verificationGuard } from '@core/verification.guard';
 import { SidebarComponent } from '@layout/admin-layout/sidebar/sidebar.component';
+import { LayoutComponent } from '@layout/admin-layout/layout/layout.component';
 
 const web: string = localStorage.getItem('web') ?? 'admin';
 
@@ -17,7 +18,7 @@ const web: string = localStorage.getItem('web') ?? 'admin';
             [
                 {
                     path: 'dashboard',
-                    component: SidebarComponent,
+                    component: LayoutComponent,
                 },
                 {
                     path: 'login',

@@ -1,0 +1,30 @@
+.sidebar {
+    ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+
+        li {
+            width: 100%;
+            a {
+                padding: 0.7rem 1rem;
+                display: block;
+                width: 100%;
+                text-decoration: none;
+                color: var(--surface-overlay);
+            }
+            a:hover {
+                background-color: var(--surface-overlay);
+                transition: background-color 0.3s;
+                color: var(--primary-color) !important;
+                border-radius: 0.2rem;
+            }
+
+            .active {
+                background-color: var(--surface-overlay);
+                color: var(--primary-color) !important;
+                border-radius: 0.2rem;
+            }
+        }
+    }
+}

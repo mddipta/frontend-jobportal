@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import LoginService from './service/login.service';
 import AuthService from '@core/service/auth.service';
 import { MessageBoxService } from '@core/service/message-box.service';
-import { Router } from '@angular/router';
+import LoginService from './service/login.service';
 
 @Component({
     selector: 'app-login',
@@ -18,7 +17,6 @@ export class LoginComponent {
         private loginService: LoginService,
         private authService: AuthService,
         private messageBox: MessageBoxService,
-        private router: Router,
         private fb: FormBuilder
     ) {}
 
