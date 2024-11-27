@@ -1,1 +1,9 @@
-<p>layout works!</p>
+<div class="container flex">
+    <app-sidebar #sidebar class="sidebar"></app-sidebar>
+    <div class="content flex-grow-1">
+        <app-navbar (toggleSidebar)="sidebar.toggleSidebar()"></app-navbar>
+        <div class="p-4 max-w-screen lg:ml-4 ml-0">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>

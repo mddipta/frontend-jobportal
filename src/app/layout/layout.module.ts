@@ -43,6 +43,8 @@ import { AuthLayoutComponent } from './auth-layout/auth-layout.component';
 import { SidebarModule } from 'primeng/sidebar';
 import { DividerModule } from 'primeng/divider';
 import { SidebarComponent } from './admin-layout/sidebar/sidebar.component';
+import { NavbarComponent } from './admin-layout/navbar/navbar.component';
+import { LayoutComponent } from './admin-layout/layout/layout.component';
 
 @NgModule({
     declarations: [
@@ -61,6 +63,8 @@ import { SidebarComponent } from './admin-layout/sidebar/sidebar.component';
         PrivacyPoliciesComponent,
         AuthLayoutComponent,
         SidebarComponent,
+        NavbarComponent,
+        LayoutComponent,
     ],
     imports: [
         AutoCompleteModule,
