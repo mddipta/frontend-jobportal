@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import AuthService from '@core/service/auth.service';
 import { MessageBoxService } from '@core/service/message-box.service';
 import LoginService from './service/login.service';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-login',
@@ -17,7 +18,8 @@ export class LoginComponent {
         private loginService: LoginService,
         private authService: AuthService,
         private messageBox: MessageBoxService,
-        private fb: FormBuilder
+        private fb: FormBuilder,
+        private router: Router
     ) {}
 
     ngOnInit() {
@@ -37,11 +39,16 @@ export class LoginComponent {
                 next: (res) => {
                     const obj = JSON.parse(res);
                     this.authService.saveLoginData(obj);
-                    this.messageBox.showSuccess(
-                        'Login successful',
-                        null,
-                        false
-                    );
+                    this.loginService.getDataLogin().subscribe({
+                        next: (res) => {
+                            if (res.data.roleCode === 'SA') {
+                                this.router.navigateByUrl('/dashboard');
+                            }
+                        },
+                        error: (err) => {
+                            console.log(err);
+                        },
+                    });
                 },
                 error: (err) => {
                     const error = JSON.parse(err);

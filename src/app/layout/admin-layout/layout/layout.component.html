@@ -1,7 +1,10 @@
 <div class="container flex">
-    <app-sidebar #sidebar class="sidebar"></app-sidebar>
+    <app-sidebar #sidebar class="sidebar" [user]="user"></app-sidebar>
     <div class="content flex-grow-1">
-        <app-navbar (toggleSidebar)="sidebar.toggleSidebar()"></app-navbar>
+        <app-navbar
+            (toggleSidebar)="sidebar.toggleSidebar()"
+            [user]="user"
+        ></app-navbar>
         <div class="p-4 max-w-screen lg:ml-4 ml-0">
             <router-outlet></router-outlet>
         </div>

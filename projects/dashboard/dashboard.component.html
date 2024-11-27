@@ -1,0 +1,140 @@
+<div class="grid">
+    <div class="col-12 lg:col-9 flex-order-1 lg:flex-order-0">
+        <div class="grid">
+            <div class="col-6 lg:col-3">
+                <p-card class="h-full">
+                    <div class="flex align-items-center">
+                        <div
+                            class="flex justify-content-center align-items-center bg-primary-200 w-4rem h-4rem border-round text-primary mr-3"
+                        >
+                            <i class="fa fa-users text-3xl"></i>
+                        </div>
+                        <div>
+                            <h6 class="font-semibold mb-1">Total User</h6>
+                            <h6 class="text-2xl font-semibold m-0">
+                                {{ dataDashboard.totalUser }}
+                            </h6>
+                        </div>
+                    </div>
+                </p-card>
+            </div>
+            <div class="col-6 lg:col-3">
+                <p-card class="h-full">
+                    <div class="flex align-items-center">
+                        <div
+                            class="flex justify-content-center align-items-center bg-green-200 w-4rem h-4rem border-round text-green-500 p-3 mr-3"
+                        >
+                            <i class="fa fa-briefcase text-3xl"></i>
+                        </div>
+                        <div>
+                            <h6 class="font-semibold mb-1">Total Pekerjaan</h6>
+                            <h6 class="text-2xl font-semibold m-0">
+                                {{ dataDashboard.totalJobTitle }}
+                            </h6>
+                        </div>
+                    </div>
+                </p-card>
+            </div>
+            <div class="col-6 lg:col-3">
+                <p-card class="h-full">
+                    <div class="flex align-items-center">
+                        <div
+                            class="flex justify-content-center align-items-center bg-orange-200 w-4rem h-4rem border-round text-orange-500 p-3 mr-3"
+                        >
+                            <i class="fa fa-bookmark text-3xl"></i>
+                        </div>
+                        <div>
+                            <h6 class="font-semibold mb-1">Total Lowongan</h6>
+                            <h6 class="text-2xl font-semibold m-0">
+                                {{ dataDashboard.totalVacancy }}
+                            </h6>
+                        </div>
+                    </div>
+                </p-card>
+            </div>
+            <div class="col-6 lg:col-3">
+                <p-card class="h-full">
+                    <div class="flex align-items-center">
+                        <div
+                            class="flex justify-content-center align-items-center bg-indigo-200 w-4rem h-4rem border-round text-indigo-500 p-3 mr-3"
+                        >
+                            <i class="fa fa-handshake text-3xl"></i>
+                        </div>
+                        <div>
+                            <h6 class="font-semibold mb-1">Total Penawaran</h6>
+                            <h6 class="text-2xl font-semibold m-0">
+                                {{ dataDashboard.totalOffering }}
+                            </h6>
+                        </div>
+                    </div>
+                </p-card>
+            </div>
+        </div>
+    </div>
+    <div class="col-12 lg:col-3 flex-order-0 lg:flex-order-1">
+        <p-card class="h-full">
+            <div class="flex h-full">
+                <div>
+                    <h6 class="text-xl font-medium">Hi {{ username }}</h6>
+                    <h6 class="text-xl font-medium m-0">
+                        {{ currentDate }}
+                    </h6>
+                </div>
+            </div>
+        </p-card>
+    </div>
+</div>
+
+<div class="grid">
+    <!-- Content Table -->
+    <div class="col-12 md:col-6">
+        <p-card>
+            <h5>Data Tahapan Seleksi Kandidat Terbaru</h5>
+            <p-table
+                [value]="dataDashboard.processSelectionStage"
+                [tableStyle]="{ 'min-width': '50rem' }"
+            >
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th>Nama Kandidat</th>
+                        <th>Tahapan Seleksi</th>
+                        <th>Lowongan</th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-selection>
+                    <tr>
+                        <td>{{ selection.name }}</td>
+                        <td>{{ selection.selectionStage }}</td>
+                        <td>{{ selection.vacancy }}</td>
+                    </tr>
+                </ng-template>
+            </p-table>
+        </p-card>
+    </div>
+    <div class="col-12 md:col-6">
+        <p-card>
+            <h5>Data Lowongan Terbaru</h5>
+            <p-table
+                [value]="dataDashboard.jobVacancy"
+                [tableStyle]="{ 'min-width': '50rem' }"
+            >
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th>Pekerjaan</th>
+                        <th>Tipe Pekerja</th>
+                        <th>Tingkat Pengalaman</th>
+                        <th>Tanggal Penutupan</th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-vacancy>
+                    <tr>
+                        <td>{{ vacancy.titleJob }}</td>
+                        <td>{{ vacancy.employmentType }}</td>
+                        <td>{{ vacancy.levelExperience }}</td>
+                        <td>{{ vacancy.deadlineApply }}</td>
+                    </tr>
+                </ng-template>
+            </p-table>
+        </p-card>
+    </div>
+</div>

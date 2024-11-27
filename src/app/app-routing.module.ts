@@ -9,6 +9,7 @@ import { VerificationComponent } from 'projects/verification/verification.compon
 import { verificationGuard } from '@core/verification.guard';
 import { SidebarComponent } from '@layout/admin-layout/sidebar/sidebar.component';
 import { LayoutComponent } from '@layout/admin-layout/layout/layout.component';
+import { authGuard } from '@core/auth.guard';
 
 const web: string = localStorage.getItem('web') ?? 'admin';
 
@@ -19,6 +20,14 @@ const web: string = localStorage.getItem('web') ?? 'admin';
                 {
                     path: 'dashboard',
                     component: LayoutComponent,
+                    loadChildren: () =>
+                        import('projects/dashboard/dashboard.module').then(
+                            (m) => m.DashboardModule
+                        ),
+                    canActivate: [authGuard],
+                    data: {
+                        roles: ['SA', 'HR'],
+                    },
                 },
                 {
                     path: 'login',

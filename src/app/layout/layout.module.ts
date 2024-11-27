@@ -45,6 +45,7 @@ import { DividerModule } from 'primeng/divider';
 import { SidebarComponent } from './admin-layout/sidebar/sidebar.component';
 import { NavbarComponent } from './admin-layout/navbar/navbar.component';
 import { LayoutComponent } from './admin-layout/layout/layout.component';
+import { MenuModule } from 'primeng/menu';
 
 @NgModule({
     declarations: [
@@ -94,6 +95,7 @@ import { LayoutComponent } from './admin-layout/layout/layout.component';
         CheckboxModule,
         SidebarModule,
         DividerModule,
+        MenuModule,
     ],
     providers: [MenuService, ConfigService, ConfirmationService],
 })

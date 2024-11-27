@@ -234,6 +234,7 @@ export class ApiService {
                 })
             );
     }
+
     getFileByte(
         uri: string,
         param?: HttpParams,
