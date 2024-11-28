@@ -30,6 +30,18 @@ const web: string = localStorage.getItem('web') ?? 'admin';
                     },
                 },
                 {
+                    path: 'locations',
+                    component: LayoutComponent,
+                    loadChildren: () =>
+                        import('projects/location/location.module').then(
+                            (m) => m.LocationModule
+                        ),
+                    canActivate: [authGuard],
+                    data: {
+                        roles: ['SA'],
+                    },
+                },
+                {
                     path: 'login',
                     component: AuthLayoutComponent,
                     loadChildren: () =>

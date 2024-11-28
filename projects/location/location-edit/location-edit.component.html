@@ -1,0 +1,62 @@
+<p-card>
+    <div styleClass="p-3" [formGroup]="locationForm">
+        <h5>Tambah Lokasi</h5>
+        <div class="field">
+            <label for="code" class="text-black-alpha-80"
+                >Code <span class="text-red-500">*</span>
+            </label>
+            <input
+                type="text"
+                pInputText
+                class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"
+                formControlName="code"
+                placeholder="Kode Lokasi"
+                [ngClass]="{
+                            'ng-invalid ng-dirty':
+                            locationForm.get('code')?.invalid &&
+                            (locationForm.get('code')?.dirty ||
+                            locationForm.get('code')?.touched),
+                        }"
+            />
+            <div
+                *ngIf="
+                    locationForm.get('code')?.invalid &&
+                    locationForm.get('code')?.touched
+                "
+                class="text-red-500"
+            >
+                Code is required.
+            </div>
+        </div>
+        <div class="field">
+            <label for="name" class="text-black-alpha-80"
+                >Lokasi <span class="text-red-500">*</span></label
+            >
+            <input
+                type="text"
+                pInputText
+                class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"
+                formControlName="name"
+                placeholder="Nama Lokasi"
+            />
+            <div
+                *ngIf="
+                    locationForm.get('name')?.invalid &&
+                    locationForm.get('name')?.touched
+                "
+                class="text-red-500"
+            >
+                Name is required.
+            </div>
+        </div>
+        <div class="mt-6">
+            <btn-submit
+                [classList]="'text-white-alpha-90'"
+                (onClick)="onSubmit()"
+                [message]="'Apakah anda yakin ingin menambahkan data ini?'"
+                [header]="'Tambah Data'"
+            ></btn-submit>
+            <btn-kembali [routeUrl]="'/locations'"></btn-kembali>
+        </div>
+    </div>
+</p-card>

@@ -87,4 +87,10 @@ export const MENU = [
         label: 'Dashboard',
         icon: 'fa fa-home',
     },
+    {
+        role: ['SA'],
+        route: '/locations',
+        label: 'Lokasi',
+        icon: 'fa fa-map-location-dot',
+    },
 ];

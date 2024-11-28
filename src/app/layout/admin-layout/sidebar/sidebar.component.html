@@ -30,22 +30,8 @@
     </ng-template>
 
     <ng-template pTemplate="content">
-        <ul class="list-none p-0 m-0 mt-4">
-            <li class="mb-3">
-                <a
-                    href="#"
-                    class="w-full text-lg flex align-items-center text-white hover:text-gray-300"
-                >
-                    <i class="fa fa-home mr-2"></i>
-                    Dashboard
-                </a>
-            </li>
-        </ul>
-    </ng-template>
-
-    <ng-template pTemplate="content">
         <ul>
-            <li *ngFor="let menu of menuSidebar">
+            <li *ngFor="let menu of menuSidebar" class="mb-2">
                 <a
                     [routerLink]="menu.route"
                     class="w-full text-lg flex align-items-center"
@@ -54,7 +40,7 @@
                     }"
                 >
                     <i [ngClass]="menu.icon + ' mr-3'"></i>
-                    Dashboard
+                    {{ menu.label }}
                 </a>
             </li>
         </ul>

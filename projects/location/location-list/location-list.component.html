@@ -1,0 +1,28 @@
+<h3>Daftar Lokasi</h3>
+
+<div class="mt-4">
+    <a
+        routerLink="/locations/new"
+        class="p-3 bg-primary mt-7 border-round text-base font-semibold"
+    >
+        <i class="fa fa-plus pr-2"></i> Tambah Lokasi
+    </a>
+</div>
+
+<p-card styleClass="p-3 mt-5" class="overflow-x-auto">
+    <app-search (search)="onSearch($event)" [isFilter]="false"></app-search>
+    <app-table
+        #TableComponent
+        [isSelectable]="false"
+        [isStatus]="true"
+        [columMap]="columMap"
+        uri="locations"
+        [kebabOption]="kebabOption"
+        (action)="tableAction($event)"
+    ></app-table>
+</p-card>
+<p-confirmDialog
+    [style]="{ width: '50vw' }"
+    [acceptVisible]="true"
+    [rejectVisible]="true"
+></p-confirmDialog>

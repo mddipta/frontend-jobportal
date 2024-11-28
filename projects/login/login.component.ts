@@ -39,16 +39,9 @@ export class LoginComponent {
                 next: (res) => {
                     const obj = JSON.parse(res);
                     this.authService.saveLoginData(obj);
-                    this.loginService.getDataLogin().subscribe({
-                        next: (res) => {
-                            if (res.data.roleCode === 'SA') {
-                                this.router.navigateByUrl('/dashboard');
-                            }
-                        },
-                        error: (err) => {
-                            console.log(err);
-                        },
-                    });
+                    if (obj.data.role === 'SA') {
+                        this.router.navigateByUrl('/dashboard');
+                    }
                 },
                 error: (err) => {
                     const error = JSON.parse(err);
