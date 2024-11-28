@@ -5,8 +5,10 @@
             (toggleSidebar)="sidebar.toggleSidebar()"
             [user]="user"
         ></app-navbar>
-        <div class="p-4 max-w-screen lg:ml-4 ml-0">
+        <div class="max-w-screen lg:ml-4 ml-0">
             <router-outlet></router-outlet>
         </div>
     </div>
 </div>
+<flash-message-error></flash-message-error>
+<flash-message-success></flash-message-success>

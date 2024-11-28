@@ -45,7 +45,7 @@ export class NavbarComponent {
                 styleClass: 'py-2',
             },
             {
-                label: this.user.role,
+                label: this.user.roleName,
                 styleClass: 'py-2',
             },
             {

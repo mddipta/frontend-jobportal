@@ -24,7 +24,6 @@ export class SidebarComponent {
     }
 
     ngOnInit() {
-        //Get current route
         if (this.user) {
             this.listMenu();
         }
@@ -38,7 +37,7 @@ export class SidebarComponent {
 
     listMenu() {
         this.menuSidebar = this.menuSidebar.filter((item) => {
-            return item.role.includes(this.user.roleCode);
+            return item.role.includes(this.user.role);
         });
 
         this.subscribe = this.route.url.subscribe((url) => {
@@ -52,8 +51,6 @@ export class SidebarComponent {
                 return item;
             });
         });
-
-        console.log(this.menuSidebar);
     }
 
     toggleSidebar() {
