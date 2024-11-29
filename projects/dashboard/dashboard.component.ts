@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import DashboardService from './service/dashboard.service';
 import { DashboardResponseDto } from './service/dashboard.model';
+import AuthService from '@core/service/auth.service';
 
 @Component({
     selector: 'app-dashboard',
@@ -12,7 +13,10 @@ export class DashboardComponent {
     username: string;
     dataDashboard: DashboardResponseDto;
 
-    constructor(private dashboardService: DashboardService) {}
+    constructor(
+        private dashboardService: DashboardService,
+        private authService: AuthService
+    ) {}
 
     ngOnInit() {
         this.currentDate = this.getFormattedDate();
@@ -32,14 +36,7 @@ export class DashboardComponent {
     }
 
     getDataLogin() {
-        this.dashboardService.getDataLogin().subscribe({
-            next: (res) => {
-                this.username = res.data.username;
-            },
-            error: (err) => {
-                console.log(err);
-            },
-        });
+        this.username = this.authService.getLoginData().username;
     }
 
     getDataDashboard() {

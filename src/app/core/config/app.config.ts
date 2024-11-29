@@ -93,4 +93,10 @@ export const MENU = [
         label: 'Lokasi',
         icon: 'fa fa-map-location-dot',
     },
+    {
+        role: ['SA'],
+        route: '/users',
+        label: 'User',
+        icon: 'fa fa-users',
+    },
 ];

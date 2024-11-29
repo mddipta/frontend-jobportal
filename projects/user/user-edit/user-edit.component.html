@@ -1,0 +1,94 @@
+<p-card>
+    <div styleClass="p-3" [formGroup]="userForm">
+        <h5>Tambah User</h5>
+        <div class="field">
+            <label for="username" class="text-black-alpha-80"
+                >Username <span class="text-red-500">*</span>
+            </label>
+            <input
+                type="text"
+                pInputText
+                class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"
+                formControlName="username"
+                placeholder="Username User"
+                [ngClass]="{
+                            'ng-invalid ng-dirty':
+                            userForm.get('username')?.invalid &&
+                            (userForm.get('username')?.dirty ||
+                            userForm.get('username')?.touched),
+                        }"
+            />
+            <app-error-field-helper
+                [formControlKey]="userForm.get('username')"
+            ></app-error-field-helper>
+        </div>
+        <div class="field">
+            <label for="password" class="text-black-alpha-80">Password</label>
+            <input
+                type="password"
+                pInputText
+                class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"
+                formControlName="password"
+                placeholder="Password User"
+            />
+        </div>
+        <div class="field">
+            <label for="email" class="text-black-alpha-80"
+                >Email <span class="text-red-500">*</span>
+            </label>
+            <input
+                type="email"
+                pInputText
+                class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"
+                formControlName="email"
+                placeholder="Email User"
+                [ngClass]="{
+                            'ng-invalid ng-dirty':
+                            userForm.get('email')?.invalid &&
+                            (userForm.get('email')?.dirty ||
+                            userForm.get('email')?.touched),
+                        }"
+            />
+            <app-error-field-helper
+                [formControlKey]="userForm.get('email')"
+            ></app-error-field-helper>
+        </div>
+        <div class="field">
+            <label for="role" class="text-black-alpha-80"
+                >Role <span class="text-red-500">*</span></label
+            >
+            <app-lov
+                [chaining]="true"
+                uri="roles"
+                label="Pilih Role"
+                (selected)="onSelectRole($event)"
+                [styleClass]="
+                    'text-base text-color surface-overlay border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full'
+                "
+                [value]="userForm.get('role').value"
+                [ngClass]="{
+                    'border-red-600':
+                    userForm.get('role')?.invalid &&
+                    (userForm.get('role')?.dirty || userForm.get('role')?.touched),
+                }"
+            ></app-lov>
+            <app-error-field-helper
+                [formControlKey]="userForm.get('role')"
+            ></app-error-field-helper>
+        </div>
+        <div class="field flex align-items-center gap-3">
+            <label for="status" class="text-black-alpha-80">Tidak Aktif</label>
+            <p-inputSwitch formControlName="isActive"></p-inputSwitch>
+            <label for="status" class="text-black-alpha-80">Aktif</label>
+        </div>
+        <div class="mt-6">
+            <btn-submit
+                [classList]="'text-white-alpha-90'"
+                (onClick)="onSubmit()"
+                [message]="'Apakah anda yakin ingin menambahkan data ini?'"
+                [header]="'Tambah Data'"
+            ></btn-submit>
+            <btn-kembali [routeUrl]="'/users'"></btn-kembali>
+        </div>
+    </div>
+</p-card>
