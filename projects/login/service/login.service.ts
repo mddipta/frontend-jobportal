@@ -9,10 +9,6 @@ class LoginService {
     login(request: UserLoginRequestDto) {
         return this.api.postLogin('login', request, true);
     }
-
-    getDataLogin() {
-        return this.api.get('user-login', null, true);
-    }
 }
 
 export default LoginService;

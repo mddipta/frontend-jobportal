@@ -38,6 +38,12 @@
                 class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"
                 formControlName="name"
                 placeholder="Nama Lokasi"
+                [ngClass]="{
+                            'ng-invalid ng-dirty':
+                            locationForm.get('name')?.invalid &&
+                            (locationForm.get('name')?.dirty ||
+                            locationForm.get('name')?.touched),
+                        }"
             />
             <div
                 *ngIf="

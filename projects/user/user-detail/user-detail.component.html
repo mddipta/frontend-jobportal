@@ -1,0 +1,81 @@
+<p-card>
+    <div class="grid">
+        <div class="col-12 lg:col-3 lg:w-max">
+            <div class="flex justify-content-center lg:justify-content-start">
+                <img
+                    [src]="user?.profilePic"
+                    class="w-18rem border-round"
+                    alt="User Profile Picture"
+                />
+            </div>
+            <div class="text-center mt-3">
+                <h5>{{ user?.name }}</h5>
+                <div class="mt-5">
+                    <a
+                        [href]="'mailto:' + user?.email"
+                        class="py-2 px-3 mr-4 text-base bg-primary text-white border-round"
+                    >
+                        <i class="fa fa-envelope"></i> Email
+                    </a>
+                    <a
+                        [href]="'https://wa.me/' + user?.phone"
+                        target="_blank"
+                        class="py-2 px-3 text-base bg-green-500 text-white border-round"
+                    >
+                        <i class="fa fa-brands fa-whatsapp"></i> Hubungi
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 lg:col-9 mt-4 lg:mt-0 w-max">
+            <table class="text-left user-details-table">
+                <tr>
+                    <th>Username</th>
+                    <td>:</td>
+                    <td>{{ user?.username }}</td>
+                </tr>
+                <tr>
+                    <th>Email</th>
+                    <td>:</td>
+                    <td>{{ user?.email }}</td>
+                </tr>
+                <tr>
+                    <th>No HP</th>
+                    <td>:</td>
+                    <td>{{ user?.phone }}</td>
+                </tr>
+                <tr>
+                    <th>Alamat</th>
+                    <td>:</td>
+                    <td>{{ user?.address }}</td>
+                </tr>
+                <tr>
+                    <th>Kota</th>
+                    <td>:</td>
+                    <td>{{ user?.city }}</td>
+                </tr>
+                <tr>
+                    <th>Jenis Kelamin</th>
+                    <td>:</td>
+                    <td>
+                        <div *ngIf="user?.gender === 'P'">Perempuan</div>
+                        <div *ngIf="user?.gender === 'L'">Laki - Laki</div>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Tanggal Lahir</th>
+                    <td>:</td>
+                    <td>{{ user?.born }}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="mt-8">
+        <a
+            [routerLink]="'/users'"
+            class="py-2 px-3 border-round text-lg bg-gray-500 text-white"
+        >
+            Kembali</a
+        >
+    </div>
+</p-card>
