@@ -1,0 +1,41 @@
+<p-card>
+    <div styleClass="p-3" [formGroup]="jobForm">
+        <h5>Ubah Pekerjaan</h5>
+        <div class="field">
+            <label for="title" class="text-black-alpha-80"
+                >Nama Pekerjaan <span class="text-red-500">*</span>
+            </label>
+            <input
+                type="text"
+                pInputText
+                class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"
+                formControlName="title"
+                placeholder="Nama Pekerjaan"
+                [ngClass]="{
+                            'ng-invalid ng-dirty':
+                            jobForm.get('title')?.invalid &&
+                            (jobForm.get('title')?.dirty ||
+                            jobForm.get('title')?.touched),
+                        }"
+            />
+            <app-error-field-helper
+                [formControlKey]="jobForm.get('title')"
+            ></app-error-field-helper>
+        </div>
+        <div class="field flex align-items-center gap-3">
+            <label for="status" class="text-black-alpha-80">Tidak Aktif</label>
+            <p-inputSwitch formControlName="isActive"></p-inputSwitch>
+            <label for="status" class="text-black-alpha-80">Aktif</label>
+        </div>
+
+        <div class="mt-6">
+            <btn-submit
+                [classList]="'text-white-alpha-90'"
+                (onClick)="onSubmit()"
+                [message]="'Apakah anda yakin ingin menambahkan data ini?'"
+                [header]="'Tambah Data'"
+            ></btn-submit>
+            <btn-kembali [routeUrl]="'/job-titles'"></btn-kembali>
+        </div>
+    </div>
+</p-card>

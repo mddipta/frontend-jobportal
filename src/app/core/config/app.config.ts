@@ -99,4 +99,10 @@ export const MENU = [
         label: 'User',
         icon: 'fa fa-users',
     },
+    {
+        role: ['SA'],
+        route: '/job-titles',
+        label: 'Pekerjaan',
+        icon: 'fa fa-briefcase',
+    },
 ];

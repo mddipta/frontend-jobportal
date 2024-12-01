@@ -49,6 +49,7 @@ export class TableComponent {
     @Input() isIndex: boolean = true;
     @Input() indexLabel: string = 'No';
     @Input() uri: String;
+    @Input() id: String;
     @Input() isStatus: boolean = true;
     @Input() customStatus: any;
     @Input() isActiveStatus: boolean = false;
@@ -356,7 +357,7 @@ export class TableComponent {
         if (this.uri) {
             if (canLoad) {
                 this.listSubscription = this.srv
-                    .getList(this.uri, pi, this.body, this.sortBy)
+                    .getList(this.uri, pi, this.body, this.sortBy, this.id)
                     .subscribe({
                         next: (res) => {
                             if (res) {
@@ -376,6 +377,7 @@ export class TableComponent {
                                 this.cd.detectChanges();
                             }
                         },
+
                         error: (err) => {
                             this.loading = false;
                             this.cd.detectChanges();

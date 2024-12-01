@@ -1,0 +1,211 @@
+<h3>Detail Pekerjaan {{ jobTitle }}</h3>
+
+<div class="mt-5">
+    <button
+        class="p-3 bg-primary border-round text-base font-semibold border-0 border-none cursor-pointer"
+        (click)="addDescModal()"
+    >
+        <i class="fa fa-plus pr-2"></i> Tambah Deskripsi
+    </button>
+</div>
+
+<p-card styleClass="p-3 mt-5" class="overflow-x-auto">
+    <app-search (search)="onSearchDesc($event)" [isFilter]="false"></app-search>
+    <app-table
+        #TableDescComponent
+        [isSelectable]="false"
+        [columMap]="columMapDesc"
+        uri="job-descriptions"
+        [id]="jobTitleId"
+        [kebabOption]="kebabOptionDesc"
+        [isStatus]="false"
+        (action)="tableActionDesc($event)"
+    ></app-table>
+</p-card>
+
+<div class="mt-3">
+    <button
+        class="p-3 bg-primary mt-7 border-round text-base font-semibold border-0 border-none cursor-pointer"
+        (click)="addSpecModal()"
+    >
+        <i class="fa fa-plus pr-2"></i> Tambah Spesifikasi
+    </button>
+</div>
+
+<p-card styleClass="p-3 mt-5 mb-5" class="overflow-x-auto">
+    <app-search (search)="onSearchSpec($event)" [isFilter]="false"></app-search>
+    <app-table
+        #TableSpecComponent
+        [isSelectable]="false"
+        [isStatus]="false"
+        [columMap]="columMapSpec"
+        uri="job-specifications"
+        [id]="jobTitleId"
+        [kebabOption]="kebabOptionSpec"
+        (action)="tableActionSpec($event)"
+    ></app-table>
+</p-card>
+
+<btn-kembali
+    [routeUrl]="'/job-titles'"
+    [isNeedConfirmation]="false"
+></btn-kembali>
+
+<p-confirmDialog
+    [style]="{ width: '50vw' }"
+    [acceptVisible]="true"
+    [rejectVisible]="true"
+></p-confirmDialog>
+
+<!-- Dialog add description -->
+<p-dialog
+    header="Tambah Deskripsi"
+    [(visible)]="visibleDesc"
+    [modal]="true"
+    [style]="{ width: '50vw' }"
+    [draggable]="false"
+    [resizable]="false"
+>
+    <div [formGroup]="descForm">
+        <div class="field">
+            <label for="description" class="text-black-alpha-80"
+                >Deskripsi <span class="text-red-500">*</span>
+            </label>
+            <input
+                type="text"
+                pInputText
+                class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"
+                formControlName="description"
+                placeholder="Deskripsi Pekerjaan"
+                [ngClass]="{
+                            'ng-invalid ng-dirty':
+                            descForm.get('description')?.invalid &&
+                            (descForm.get('description')?.dirty ||
+                            descForm.get('description')?.touched),
+                        }"
+            />
+            <app-error-field-helper
+                [formControlKey]="descForm.get('description')"
+            ></app-error-field-helper>
+        </div>
+    </div>
+
+    <btn-submit
+        (onClick)="onSubmitDesc()"
+        [isNeedConfirmation]="false"
+    ></btn-submit>
+</p-dialog>
+
+<!-- Edit dialog desc -->
+<p-dialog
+    header="Edit Deskripsi"
+    [(visible)]="visibleDescEdit"
+    [modal]="true"
+    [style]="{ width: '50vw' }"
+    [draggable]="false"
+    [resizable]="false"
+>
+    <div [formGroup]="editDescForm">
+        <div class="field">
+            <label for="description" class="text-black-alpha-80"
+                >Deskripsi <span class="text-red-500">*</span>
+            </label>
+            <input
+                type="text"
+                pInputText
+                class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"
+                formControlName="description"
+                placeholder="Deskripsi Pekerjaan"
+                [ngClass]="{
+                            'ng-invalid ng-dirty':
+                            editDescForm.get('description')?.invalid &&
+                            (editDescForm.get('description')?.dirty ||
+                            editDescForm.get('description')?.touched),
+                        }"
+            />
+            <app-error-field-helper
+                [formControlKey]="editDescForm.get('description')"
+            ></app-error-field-helper>
+        </div>
+    </div>
+
+    <btn-submit
+        (onClick)="onSubmitEditDesc()"
+        [isNeedConfirmation]="false"
+    ></btn-submit>
+</p-dialog>
+
+<!-- Add dialog spec -->
+<p-dialog
+    header="Tambah Spesifikasi"
+    [(visible)]="visibleSpec"
+    [modal]="true"
+    [style]="{ width: '50vw' }"
+    [draggable]="false"
+    [resizable]="false"
+>
+    <div [formGroup]="specForm">
+        <div class="field">
+            <label for="specification" class="text-black-alpha-80"
+                >Spesifikasi <span class="text-red-500">*</span>
+            </label>
+            <input
+                type="text"
+                pInputText
+                class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"
+                formControlName="specification"
+                placeholder="Spesifikasi pekerjaan"
+                [ngClass]="{
+                            'ng-invalid ng-dirty':
+                            specForm.get('specification')?.invalid &&
+                            (specForm.get('specification')?.dirty ||
+                            specForm.get('specification')?.touched),
+                        }"
+            />
+            <app-error-field-helper
+                [formControlKey]="specForm.get('specification')"
+            ></app-error-field-helper>
+        </div>
+        <btn-submit
+            (onClick)="onSubmitSpec()"
+            [isNeedConfirmation]="false"
+        ></btn-submit>
+    </div>
+</p-dialog>
+
+<p-dialog
+    header="Edit Spesifikasi"
+    [(visible)]="visibleEditSpec"
+    [modal]="true"
+    [style]="{ width: '50vw' }"
+    [draggable]="false"
+    [resizable]="false"
+>
+    <div [formGroup]="editSpecForm">
+        <div class="field">
+            <label for="specification" class="text-black-alpha-80"
+                >Spesifikasi <span class="text-red-500">*</span>
+            </label>
+            <input
+                type="text"
+                pInputText
+                class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"
+                formControlName="specification"
+                placeholder="Spesifikasierjaan"
+                [ngClass]="{
+                            'ng-invalid ng-dirty':
+                            editSpecForm.get('specification')?.invalid &&
+                            (editSpecForm.get('specification')?.dirty ||
+                            editSpecForm.get('specification')?.touched),
+                        }"
+            />
+            <app-error-field-helper
+                [formControlKey]="editSpecForm.get('specification')"
+            ></app-error-field-helper>
+        </div>
+        <btn-submit
+            (onClick)="onSubmitEditSpec()"
+            [isNeedConfirmation]="false"
+        ></btn-submit>
+    </div>
+</p-dialog>

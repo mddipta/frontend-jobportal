@@ -1,0 +1,207 @@
+<p-card>
+    <div styleClass="p-3" [formGroup]="jobForm">
+        <h5>Tambah Pekerjaan</h5>
+        <div class="field">
+            <label for="title" class="text-black-alpha-80"
+                >Nama Pekerjaan <span class="text-red-500">*</span>
+            </label>
+            <input
+                type="text"
+                pInputText
+                class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"
+                formControlName="title"
+                placeholder="Nama Pekerjaan"
+                [ngClass]="{
+                            'ng-invalid ng-dirty':
+                            jobForm.get('title')?.invalid &&
+                            (jobForm.get('title')?.dirty ||
+                            jobForm.get('title')?.touched),
+                        }"
+            />
+            <app-error-field-helper
+                [formControlKey]="jobForm.get('title')"
+            ></app-error-field-helper>
+        </div>
+
+        <div class="grid">
+            <div class="col-6">
+                <div class="field">
+                    <div class="flex flex-column">
+                        <label for="jobDescription" class="text-black-alpha-80"
+                            >Deskripsi Pekerjaan
+                            <span class="text-red-500">*</span>
+                        </label>
+                        <div class="flex align-items-center gap-4">
+                            <input
+                                type="text"
+                                pInputText
+                                class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"
+                                formControlName="jobDescription"
+                                placeholder="Nama Lowongan Pekerjaan"
+                                [ngClass]="{
+                            'ng-invalid ng-dirty':
+                            jobForm.get('jobDescription')?.invalid &&
+                            (jobForm.get('jobDescription')?.dirty ||
+                            jobForm.get('jobDescription')?.touched),
+                        }"
+                            />
+                            <button
+                                (click)="addDescription()"
+                                class="py-2 px-3 border-round bg-green-600 text-white border-none"
+                            >
+                                <i class="fa fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <app-error-field-helper
+                        [formControlKey]="jobForm.get('jobDescription')"
+                    ></app-error-field-helper>
+                </div>
+                <!-- Input more description -->
+                <div formArrayName="jobDescription">
+                    <div
+                        *ngFor="
+                            let desc of jobDescription.controls;
+                            let i = index
+                        "
+                    >
+                        <div class="field">
+                            <div class="flex flex-column">
+                                <label
+                                    for="jobDescription-{{ i }}"
+                                    class="text-black-alpha-80"
+                                >
+                                    Deskripsi Pekerjaan
+                                    <span class="text-red-500">*</span>
+                                </label>
+                                <div class="flex align-items-center gap-4">
+                                    <input
+                                        id="jobDescription-{{ i }}"
+                                        type="text"
+                                        pInputText
+                                        class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"
+                                        [formControlName]="i"
+                                        placeholder="Deskripsi pekerjaan"
+                                        [ngClass]="{
+                                            'ng-invalid ng-dirty':
+                                                jobDescription.at(i)?.invalid &&
+                                                (jobDescription.at(i)?.dirty ||
+                                                    jobDescription.at(i)
+                                                        ?.touched)
+                                        }"
+                                    />
+                                    <button
+                                        type="button"
+                                        (click)="removeDescription(i)"
+                                        class="py-2 px-3 border-round bg-red-600 text-white border-none"
+                                    >
+                                        <i class="fa fa-trash-can"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <app-error-field-helper
+                                [formControlKey]="jobDescription.at(i)"
+                            ></app-error-field-helper>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="field">
+                    <div class="flex flex-column">
+                        <label
+                            for="jobSpecification"
+                            class="text-black-alpha-80"
+                            >Spesifikasi Pekerjaan
+                            <span class="text-red-500">*</span>
+                        </label>
+                        <div class="flex align-items-center gap-4">
+                            <input
+                                type="text"
+                                pInputText
+                                class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"
+                                formControlName="jobSpecification"
+                                placeholder="Spesifikasi Pekerjaan"
+                                [ngClass]="{
+                            'ng-invalid ng-dirty':
+                            jobForm.get('jobSpecification')?.invalid &&
+                            (jobForm.get('jobSpecification')?.dirty ||
+                            jobForm.get('jobSpecification')?.touched),
+                        }"
+                            />
+                            <button
+                                (click)="addSpecification()"
+                                class="py-2 px-3 border-round bg-green-600 text-white border-none"
+                            >
+                                <i class="fa fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <app-error-field-helper
+                        [formControlKey]="jobForm.get('jobSpecification')"
+                    ></app-error-field-helper>
+                </div>
+                <!-- Input more specification -->
+                <div formArrayName="jobSpecification">
+                    <div
+                        *ngFor="
+                            let desc of jobSpecification.controls;
+                            let i = index
+                        "
+                    >
+                        <div class="field">
+                            <div class="flex flex-column">
+                                <label
+                                    for="jobSpecification-{{ i }}"
+                                    class="text-black-alpha-80"
+                                >
+                                    Spesifikasi Pekerjaan
+                                    <span class="text-red-500">*</span>
+                                </label>
+                                <div class="flex align-items-center gap-4">
+                                    <input
+                                        id="jobSpecification-{{ i }}"
+                                        type="text"
+                                        pInputText
+                                        class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"
+                                        [formControlName]="i"
+                                        placeholder="Deskripsi pekerjaan"
+                                        [ngClass]="{
+                                            'ng-invalid ng-dirty':
+                                                jobSpecification.at(i)
+                                                    ?.invalid &&
+                                                (jobSpecification.at(i)
+                                                    ?.dirty ||
+                                                    jobSpecification.at(i)
+                                                        ?.touched)
+                                        }"
+                                    />
+                                    <button
+                                        type="button"
+                                        (click)="removeSpecification(i)"
+                                        class="py-2 px-3 border-round bg-red-600 text-white border-none"
+                                    >
+                                        <i class="fa fa-trash-can"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <app-error-field-helper
+                                [formControlKey]="jobSpecification.at(i)"
+                            ></app-error-field-helper>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-6">
+            <btn-submit
+                [classList]="'text-white-alpha-90'"
+                (onClick)="onSubmit()"
+                [message]="'Apakah anda yakin ingin menambahkan data ini?'"
+                [header]="'Tambah Data'"
+            ></btn-submit>
+            <btn-kembali [routeUrl]="'/job-titles'"></btn-kembali>
+        </div>
+    </div>
+</p-card>
