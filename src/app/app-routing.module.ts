@@ -1,15 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { authGuard } from '@core/auth.guard';
+import { verificationGuard } from '@core/verification.guard';
+import { LayoutComponent } from '@layout/admin-layout/layout/layout.component';
+import { AuthLayoutComponent } from '@layout/auth-layout/auth-layout.component';
+import { VerificationComponent } from 'projects/verification/verification.component';
 import { AppMainComponent } from './layout/component/app.main.component';
 import { PageForbiddenComponent } from './layout/page-forbidden/page-forbidden.component';
 import { PageNotFoundComponent } from './layout/page-not-found/page-not-found.component';
 import { RedirectComponent } from './layout/redirect/redirect.component';
-import { AuthLayoutComponent } from '@layout/auth-layout/auth-layout.component';
-import { VerificationComponent } from 'projects/verification/verification.component';
-import { verificationGuard } from '@core/verification.guard';
-import { SidebarComponent } from '@layout/admin-layout/sidebar/sidebar.component';
-import { LayoutComponent } from '@layout/admin-layout/layout/layout.component';
-import { authGuard } from '@core/auth.guard';
 
 const web: string = localStorage.getItem('web') ?? 'admin';
 
@@ -47,6 +46,18 @@ const web: string = localStorage.getItem('web') ?? 'admin';
                     loadChildren: () =>
                         import('projects/user/user.module').then(
                             (m) => m.UserModule
+                        ),
+                    canActivate: [authGuard],
+                    data: {
+                        roles: ['SA'],
+                    },
+                },
+                {
+                    path: 'job-titles',
+                    component: LayoutComponent,
+                    loadChildren: () =>
+                        import('projects/job-title/job-title.module').then(
+                            (m) => m.JobTitleModule
                         ),
                     canActivate: [authGuard],
                     data: {

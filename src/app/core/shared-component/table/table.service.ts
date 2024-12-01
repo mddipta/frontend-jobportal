@@ -9,11 +9,25 @@ import { isNil } from 'lodash-es';
 export class TableService {
     constructor(private api: ApiService, private help: HelperService) {}
 
-    getList(uri, pi, body?, sort?) {
+    // getList(uri, pi, body?, sort?) {
+    //     let param = this.help.getParam(pi, body);
+
+    //     if (!isNil(sort)) {
+    //         param = param.set('sortBy', sort);
+    //     }
+
+    //     return this.api.get(uri, param);
+    // }
+
+    getList(uri, pi, body?, sort?, id?) {
         let param = this.help.getParam(pi, body);
 
         if (!isNil(sort)) {
             param = param.set('sortBy', sort);
+        }
+
+        if (!isNil(id)) {
+            return this.api.get(uri + '/' + id, param);
         }
 
         return this.api.get(uri, param);
